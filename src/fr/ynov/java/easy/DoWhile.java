@@ -8,7 +8,7 @@ public class DoWhile {
         do {
             i++;
             System.out.println(i);
-        }while (i<=9);
+        } while (i<=9);
     }
 
 }
