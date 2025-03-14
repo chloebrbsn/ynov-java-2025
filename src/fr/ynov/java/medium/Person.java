@@ -1,9 +1,6 @@
 package fr.ynov.java.medium;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.Instant;
 import java.util.Date;
 
 public class Person {
@@ -30,17 +27,13 @@ public class Person {
         System.out.println(" Name: "+ name + " Age: " + PersonAge() + " Gender: " + gender + " Height: " + height + " Weight: " + weight + " Nationality: " + nationality);
     }
 
-    public int PersonAge() {
+    public int PersonAge(){
 
         Date today = new Date();
-        Instant birthdate = null;
-        try {
-            birthdate = new SimpleDateFormat("YYYY/MM/DD").parse("2001/01/01").toInstant();
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        Duration d = Duration.between(birthdate, today.toInstant());
-        return (int) (d.toDays() / 365);
+        Date birthdate = new Date(2001, 1, 1);
+
+        int age = new Date(birthdate.getTime() - today.getTime()).getYear();
+        return age;
     }
 
     public static void main(String[] args){
